@@ -1,11 +1,114 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>我的貓咪網站</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catsaveme.today</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf5;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffe5d9;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .cat-card {
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      background-color: #fff;
+      text-align: center;
+    }
+    .cat-card img {
+      width: 100%;
+      height: auto;
+    }
+    .cat-card h3 {
+      margin: 0.5rem 0 0;
+    }
+    .cat-card p {
+      margin: 0.5rem;
+      font-size: 0.9rem;
+    }
+    iframe {
+      border: none;
+    }
+    footer {
+      background-color: #f3f3f3;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>🐾 歡迎來到我的貓咪天地！</h1>
-  <p>這裡是我最愛的貓咪們的家！</p>
+  <header>
+    <h1>🐾 Catsaveme.today</h1>
+    <p>Welcome to our little cat haven</p>
+  </header>
+
+  <!-- Cat Section -->
+  <section id="cats">
+    <h2>Our Cats</h2>
+    <div class="cats">
+      <div class="cat-card">
+        <a href="okane.html">
+          <img src="img/okane.jpg" alt="Okane">
+          <h3>Okane</h3>
+          <p>Joined our family on 2022.07.14</p>
+        </a>
+      </div>
+      <div class="cat-card">
+        <a href="ia.html">
+          <img src="img/ia.jpg" alt="Ia">
+          <h3>Ia</h3>
+          <p>Joined our family on 2023.06.02</p>
+        </a>
+      </div>
+      <div class="cat-card">
+        <a href="haru.html">
+          <img src="img/haru.jpg" alt="Haru">
+          <h3>Haru</h3>
+          <p>Joined our family on 2023.08.08</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section -->
+  <section id="youtube">
+    <h2>🎬 Latest Videos</h2>
+    <div style="display: flex; justify-content: center;">
+      <iframe width="360" height="203"
+        src="https://www.youtube.com/embed?listType=user_uploads&list=UC4FfYXNkg2Nz8ST3w-hPfhw"
+        title="CatsavemeToday YouTube Channel" allowfullscreen>
+      </iframe>
+    </div>
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="https://www.youtube.com/@CatsavemeToday" target="_blank">👉 Visit CatsavemeToday YouTube Channel</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Catsaveme.today | With love and cats 🐾
+  </footer>
 </body>
 </html>
