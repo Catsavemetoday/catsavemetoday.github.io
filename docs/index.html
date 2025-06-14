@@ -35,6 +35,7 @@
       overflow: hidden;
       background-color: #fff;
       text-align: center;
+      cursor: pointer;
     }
     .cat-card img {
       width: 100%;
@@ -56,6 +57,33 @@
       text-align: center;
       font-size: 0.9rem;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -68,29 +96,49 @@
   <section id="cats">
     <h2>Our Cats</h2>
     <div class="cats">
-      <div class="cat-card">
-        <a href="okane.html">
-          <img src="img/img23.jpeg" alt="Okane">
-          <h3>Okane</h3>
-          <p>Joined our family on 2022.07.14</p>
-        </a>
+      <div class="cat-card" onclick="openModal('okane')">
+        <img src="img/img23.jpeg" alt="Okane">
+        <h3>Okane</h3>
+        <p>Joined our family on 2022.07.14</p>
       </div>
-      <div class="cat-card">
-        <a href="ia.html">
-          <img src="img/img130.jpeg" alt="Ia">
-          <h3>Ia</h3>
-          <p>Joined our family on 2023.06.02</p>
-        </a>
+      <div class="cat-card" onclick="openModal('ia')">
+        <img src="img/img130.jpeg" alt="Ia">
+        <h3>Ia</h3>
+        <p>Joined our family on 2023.06.02</p>
       </div>
-      <div class="cat-card">
-        <a href="haru.html">
-          <img src="img/img4.jpeg" alt="Haru">
-          <h3>Haru</h3>
-          <p>Joined our family on 2023.08.08</p>
-        </a>
+      <div class="cat-card" onclick="openModal('haru')">
+        <img src="img/img4.jpeg" alt="Haru">
+        <h3>Haru</h3>
+        <p>Joined our family on 2023.08.08</p>
       </div>
     </div>
   </section>
+
+  <!-- Modal Sections -->
+  <div id="modal-okane" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('okane')">&times;</span>
+      <h2>Okane</h2>
+      <p>Joined our family on 2022.07.14</p>
+      <p>Okane is gentle and loves to sleep a lot 😸</p>
+    </div>
+  </div>
+  <div id="modal-ia" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('ia')">&times;</span>
+      <h2>Ia</h2>
+      <p>Joined our family on 2023.06.02</p>
+      <p>Ia is curious and very vocal 🧡</p>
+    </div>
+  </div>
+  <div id="modal-haru" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('haru')">&times;</span>
+      <h2>Haru</h2>
+      <p>Joined our family on 2023.08.08</p>
+      <p>Haru is playful and loves attention 💗</p>
+    </div>
+  </div>
 
   <!-- YouTube Section -->
   <section id="youtube">
@@ -110,5 +158,14 @@
   <footer>
     © 2025 Catsaveme.today | With love and cats 🐾
   </footer>
+
+  <script>
+    function openModal(name) {
+      document.getElementById(`modal-${name}`).style.display = 'block';
+    }
+    function closeModal(name) {
+      document.getElementById(`modal-${name}`).style.display = 'none';
+    }
+  </script>
 </body>
 </html>
