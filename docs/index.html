@@ -30,12 +30,17 @@
     }
     .cat-card {
       width: 200px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
       background-color: #fff;
       text-align: center;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .cat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .cat-card img {
       width: 100%;
@@ -65,24 +70,53 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.4);
+      animation: fadeIn 0.3s ease forwards;
     }
     .modal-content {
-      background-color: #fff;
+      background-color: #fffdfc;
       margin: 10% auto;
-      padding: 20px;
+      padding: 30px;
       width: 80%;
       max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       position: relative;
+      animation: slideFade 0.4s ease forwards;
+      border: 6px solid #ffc0cb;
+      background-image: url('img/paw-bg.png');
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: 60px;
     }
     .close {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 24px;
+      background-color: transparent;
+      border: none;
       cursor: pointer;
+    }
+    .close img {
+      width: 28px;
+      height: 28px;
+    }
+    .close:hover img {
+      transform: scale(1.1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideFade {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -115,28 +149,34 @@
   </section>
 
   <!-- Modal Sections -->
-  <div id="modal-okane" class="modal">
+  <div id="modal-okane" class="modal" onclick="outsideClick(event, 'okane')">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('okane')">&times;</span>
-      <h2>Okane</h2>
+      <button class="close" onclick="closeModal('okane')">
+        <img src="img/paw-close.png" alt="Close">
+      </button>
+      <h2>Okane 😸</h2>
       <p>Joined our family on 2022.07.14</p>
-      <p>Okane is gentle and loves to sleep a lot 😸</p>
+      <p>Okane is gentle and loves to sleep a lot.</p>
     </div>
   </div>
-  <div id="modal-ia" class="modal">
+  <div id="modal-ia" class="modal" onclick="outsideClick(event, 'ia')">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('ia')">&times;</span>
-      <h2>Ia</h2>
+      <button class="close" onclick="closeModal('ia')">
+        <img src="img/paw-close.png" alt="Close">
+      </button>
+      <h2>Ia 🧡</h2>
       <p>Joined our family on 2023.06.02</p>
-      <p>Ia is curious and very vocal 🧡</p>
+      <p>Ia is curious and very vocal.</p>
     </div>
   </div>
-  <div id="modal-haru" class="modal">
+  <div id="modal-haru" class="modal" onclick="outsideClick(event, 'haru')">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('haru')">&times;</span>
-      <h2>Haru</h2>
+      <button class="close" onclick="closeModal('haru')">
+        <img src="img/paw-close.png" alt="Close">
+      </button>
+      <h2>Haru 💗</h2>
       <p>Joined our family on 2023.08.08</p>
-      <p>Haru is playful and loves attention 💗</p>
+      <p>Haru is playful and loves attention.</p>
     </div>
   </div>
 
@@ -165,6 +205,11 @@
     }
     function closeModal(name) {
       document.getElementById(`modal-${name}`).style.display = 'none';
+    }
+    function outsideClick(event, name) {
+      if (event.target.classList.contains('modal')) {
+        closeModal(name);
+      }
     }
   </script>
 </body>
